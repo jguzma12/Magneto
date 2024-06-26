@@ -45,26 +45,45 @@ gradle clean test -Dproperties=serenity.conf -Dcucumber.filter.tags="@nombreEtiq
 1. Una empresa está dedicada a la producción y entrega de tostadores de pan. ¿Qué test cases crearías para validar que la tostadora es de buena calidad?
  
 - **Feature**: Encendido de la Tostadora
+- 
   Scenario: Verificar que la tostadora se enciende correctamente
+
   Given la tostadora está conectada a una fuente de energía
+
   When presiono el botón de encendido
+
   Then la luz indicadora de encendido se enciende
 - **Feature**: Tostado Uniforme
+  
   Scenario: Verificar que la tostadora tuesta el pan de manera uniforme
+
   Given la tostadora está encendida
+
   And he colocado una rebanada de pan en la tostadora
+
   When ajusto el nivel de tostado a medio
+
   And inicio el ciclo de tostado
+
   Then el pan debe estar tostado uniformemente por ambos lados
 - **Feature**: Desconexión Automática
+
   Scenario: Verificar que la tostadora se apaga automáticamente después de un tiempo determinado sin uso
+
   Given la tostadora está encendida sin pan
+
   When espero 5 minutos
+
   Then la tostadora se apaga automáticamente
+
 - **Feature**: Seguridad de Sobrecalentamiento
+
   Scenario: Verificar que la tostadora se apaga automáticamente si se detecta sobrecalentamiento
+
   Given la tostadora está encendida y en uso repetido
+
   When la temperatura de la tostadora se eleva por encima del umbral de seguridad
+
   Then la tostadora se apaga automáticamente
 
   
